@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Menu } from './components/Menu'
+import { ETHThx } from './components/ETHThx'
+import { ETHAddress } from './components/ETHAddress'
+import { PersonalData } from './components/PersonalData'
+
+class App extends React.Component {
+
+  render() {
+      return (
+        <div className="container" style={{marginTop: '70px'}}>
+          <Menu />
+          <Route path='/personal-data' component={PersonalData} />
+          <Route path='/eth-address' component={ETHAddress} />
+          <Route path='/eth-thx' component={ETHThx} />
+        </div>
+      )
+  }
 }
 
 export default App;
