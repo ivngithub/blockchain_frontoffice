@@ -5,8 +5,8 @@ class ETHThx extends React.Component {
 
     render() {
         return (
-            <div className="news">
-                <p>ETHThx</p>
+            <div className="page-body">
+                <h3>ETHThx</h3>
             </div>
         );
     }

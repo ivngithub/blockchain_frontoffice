@@ -5,8 +5,8 @@ class ETHAddress extends React.Component {
 
     render() {
         return (
-            <div className="news">
-                <p>ETHAddress</p>
+            <div className="page-body">
+                <h3>ETHAddress</h3>
             </div>
         );
     }
