@@ -1,7 +1,7 @@
 import React from "react";
-import { Route } from 'react-router-dom'
+
 import { Nav, NavItem, NavLink } from 'reactstrap';
- import { NavLink as RRNavLink } from 'react-router-dom';
+import { NavLink as RRNavLink } from 'react-router-dom';
 
 
 class Menu extends React.Component {
