@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom'
 
 import { Button, Form, FormGroup, Label, Input, NavLink, FormText, Alert} from 'reactstrap';
 
 async function registrationUser(credentials) {
-    return fetch('http://localhost:8000/api/users/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    })
-      .then(data => data.json())
-      .catch(error => console.log('Error is', error));
+        return fetch('http://localhost:8000/api/users/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+            })
+            .then(data => data.json())
+            .catch(error => console.log('Error is', error));
    }
    
-export default function Registration({ setToken }) {
+export default function Registration() {
     
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
@@ -41,8 +40,10 @@ export default function Registration({ setToken }) {
 
         }
         else {
-            console.log(response.user.token);
-            setToken(response.user.token);
+            console.log('I have response.user.token: ', response.user.token, '.');
+            localStorage.setItem('access_token', response.user.token);
+            console.log('I saved access_token in localStorage.');
+            window.location.reload();
         }
     }
     

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
-import PropTypes from 'prop-types';
 import { Button, Form, FormGroup, Label, Input, NavLink} from 'reactstrap';
+
 
 async function loginUser(credentials) {
     return fetch('http://localhost:8000/api/users/login/', {
@@ -15,10 +14,9 @@ async function loginUser(credentials) {
       .catch(error => console.log('Error is', error));
    }
    
-export default function Login({ setToken }) {
+export default function Login() {
     const [email, setUserName] = useState();
     const [password, setPassword] = useState();
-
     const handleSubmit = async e => {   
         e.preventDefault();
         const response = await loginUser({
@@ -31,11 +29,13 @@ export default function Login({ setToken }) {
             console.log(JSON.stringify(response.errors));
         }
         else {
-            console.log(response.user.token);
-            setToken(response.user.token);
+            console.log('I have response.user.token: ', response.user.token, '.');
+            localStorage.setItem('access_token', response.user.token);
+            console.log('I saved access_token in localStorage.');
+            console.log('login success.');
+            window.location.reload();
         }
     }
-
     return (
         <div className="login-wrapper" style={{marginTop: '150px'}}>
             <h1>Please Log In</h1>
@@ -57,6 +57,3 @@ export default function Login({ setToken }) {
 
 }
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-}
