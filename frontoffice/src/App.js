@@ -46,7 +46,6 @@ function App() {
         )
     }
     else {
-        console.log('render Menu');
         return (
 
             <div className="container" style={{marginTop: '70px'}}>

@@ -6,7 +6,7 @@ import { NavLink as RRNavLink } from 'react-router-dom';
 
 class Menu extends React.Component {
   render() {
-    console.log('render Nav');
+    console.log('render Menu');
     return (
         <Nav tabs>
           <NavItem>

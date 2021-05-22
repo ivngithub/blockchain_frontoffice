@@ -26,6 +26,7 @@ export default function Login() {
             }
         });
         if (response.errors) {
+            console.log('I have some errors');
             console.log(JSON.stringify(response.errors));
         }
         else {
